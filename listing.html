@@ -123,7 +123,7 @@
                               <h4>
                                  Charming Upper West Side Studio      
                               </h4>
-                              <div class="rz-listing-tagline d-flex justify-content-between mb-0">
+                              <div class="rz-listing-tagline d-flex mb-0 justify-content-between">
                                  <div class="rz-title pl-0 pr-2">
                                     <h5 class="categories-title"><i class="fas fa-star red-t"></i>&nbsp;4.87&nbsp;<span class="dark-grey">(62)</span></h5>
                                  </div>
@@ -133,7 +133,7 @@
                                  <div class="rz-title pl-0 pr-2">
                                     <h5 class="categories-title"><u class="dark-grey">New York, United States</u></h5>
                                  </div>
-                                 <div class="ml-auto pl-0 pr-0 text-right font-15">
+                                 <div class="ml-auto pl-0 pr-0 text-right font-15 d-none d-md-block d-lg-block">
                                     <button class="ml-1 mr-1 bg-transparent border-0">
                                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 2; overflow: visible;">
                                           <g fill="none">
@@ -732,7 +732,21 @@
                               </a>
                            </div>
                            <div class="brk-col-6">
-                              <!-- // -->
+                              <div class="ml-auto pl-0 pr-0 text-right font-15">
+                                    <button class="ml-1 mr-1 bg-transparent border-0">
+                                       <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 2; overflow: visible;">
+                                          <g fill="none">
+                                             <path d="M27 18v9a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-9"></path>
+                                             <path d="M16 3v23V3z"></path>
+                                             <path d="M6 13l9.293-9.293a1 1 0 0 1 1.414 0L26 13"></path>
+                                          </g>
+                                       </svg>
+                                       &nbsp;<u>Share</u>
+                                    </button>
+                                    <button class="ml-1 mr-1 bg-transparent border-0">
+                                    <i class="far fa-heart"></i>&nbsp;&nbsp;<u>Save</u>
+                                    </button>
+                                 </div>
                            </div>
                         </div>
                      </div>
@@ -1779,7 +1793,7 @@
             <div class="brk-site-logo">
                <a href="#">
                <span class="brk-site-title brk-font-heading">
-               Brikk.                    </span>
+               Eventor                    </span>
                </a>
             </div>
          </div>
@@ -2000,22 +2014,59 @@
    <script type='text/javascript' src='js/custom.min.js'></script>
    <script type='text/javascript' src='js/custom.js'></script>
    <script type="text/javascript">
+      $("#check-in").datepicker({
+          dateFormat: 'M d'
+      });
+      $("#check-out").datepicker({
+          dateFormat: 'M d'
+      });
+      var array = ["2020-12-14", "2020-12-15", "2020-12-16", "2020-12-17", "2020-12-18"]
+      /*$("#datepicker-check-in-date").datepicker({
+        numberOfMonths: 2,
+      });*/
 
-      $("#check-in").datepicker({ dateFormat: 'M d' });
-      $("#check-out").datepicker({ dateFormat: 'M d' });
-      var array = ["2020-12-14","2020-12-15","2020-12-16","2020-12-17","2020-12-18"]
-       $("#datepicker-check-in-date").datepicker({
-         numberOfMonths: 2,
-         beforeShowDay: function(date){
-        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-        return [ array.indexOf(string) == -1 ]
-         }
-       });
-       $("#datepicker-check-in-date").children('div').addClass("w-100 border-0");
-       var $datepicker = $('#ui-datepicker-div');
-       $datepicker.css({
-             top: 10,
-             left: 10
-         });
+      var $datepicker = $('#ui-datepicker-div');
+      $datepicker.css({
+          top: 10,
+          left: 10
+      });
+
+
+      jQuery(function($) {
+
+          $('#datepicker-check-in-date').datepicker({
+              numberOfMonths: 2,
+              beforeShowDay: function(date) {
+                  var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                  return [array.indexOf(string) == -1]
+              }
+          });
+
+          var debounce;
+          $(window).resize(function() {
+              clearTimeout(debounce);
+              if ($(window).width() < 768) {
+                  debounce = setTimeout(function() {
+                      debounceDatepicker(1)
+                  }, 250);
+              } else {
+                  debounce = setTimeout(function() {
+                      debounceDatepicker(2)
+                  }, 250);
+              }
+          }).trigger('resize');
+
+          function debounceDatepicker(no) {
+              $("#datepicker-check-in-date").datepicker("option", "numberOfMonths", no);
+              $("#datepicker-check-in-date").children('div').addClass("w-100 border-0");
+          }
+      });
+      $(window).resize(function() {
+          if ($(window).width() < 767) {
+              $('.brk--thumbs').addClass('d-none');
+          } else {
+              $('.brk--thumbs').removeClass('d-none');
+          }
+      });
    </script>
 </html>

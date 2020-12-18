@@ -259,7 +259,7 @@ textarea {
 	border: 1px solid #ddd;
 	line-height: 22px;
 	height: 42px;
-	padding: 10px;
+	padding: 8px;
 }
 textarea {
 	height: 120px
@@ -6513,6 +6513,18 @@ a {
 .f-w-600{
 	font-weight: 600 !important
 }
+.font-11{
+	font-size: 11px !important
+}
+.font-12{
+	font-size: 12px !important
+}
+.font-13{
+	font-size: 13px !important
+}
+.font-14{
+	font-size: 14px !important
+}
 .font-15{
 	font-size: 15px !important
 }
@@ -6522,9 +6534,30 @@ a {
 .font-17{
 	font-size: 17px !important
 }
+.font-18{
+	font-size: 18px !important
+}
+.font-19{
+	font-size: 19px !important
+}
+.font-20{
+	font-size: 20px !important
+}
 .font-21{
 	font-size: 21px !important
 }
 .light-txt{
 	color: #EFEEF3 !important
+}
+.cursor-pointer{
+	cursor: pointer;
+}
+.dark-orange{
+	color: #f57224;
+}
+.dark-cyan{
+	color: #1a9cb7;
+}
+.light-grey{
+	color: #DADADA;
 }

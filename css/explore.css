@@ -1402,3 +1402,26 @@ a.brk--image.line-button {
 .bo-ra-30{
 	border-radius: 30px !important;
 }
+.product-brand-list{
+	margin: 10px 0 0;
+	border: 1px solid #ececec;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,.05);   
+}
+#list-of-brand li{
+	display: none;
+}
+#list-of-brand .list-group-item{
+	color: #fff;
+}
+#filter {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* background: transparent; */
+    background-image: url(../images/down-arrow-select.png);
+    background-repeat: no-repeat;
+    background-position-x: 92%;
+    background-position-y: 13px;
+    border: 1px solid #dfdfdf;
+}
